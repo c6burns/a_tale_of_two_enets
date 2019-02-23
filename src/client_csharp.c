@@ -27,6 +27,8 @@ int main(void)
 		goto cleanup;
 	}
 
+	// addresses are all ipv6 in enet csharp so update this
+	memset(&address, 0, sizeof(address));
 	if ((ret = enet_address_set_host(&address, "192.168.86.233"))) {
 		printf("enet_address_set_host failed\n");
 		goto cleanup;

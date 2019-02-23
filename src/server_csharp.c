@@ -18,6 +18,8 @@ int main(void)
 	}
 	atexit(enet_deinitialize);
 
+	// addresses are all ipv6 in enet_csharp, so this needs to change
+	memset(&address, 0, sizeof(address));
 	address.host = ENET_HOST_ANY;
 	address.port = 65432;
 	if (!(host = enet_host_create(&address, 32, 2, 0, 0))) {

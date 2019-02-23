@@ -31,6 +31,15 @@ set(SERVER_SRCS
 	src/server.c
 )
 
+set(CLIENT_CSHARP_SRCS
+	src/client_csharp.c
+)
+
+set(SERVER_CSHARP_SRCS
+	src/server_csharp.c
+)
+
+
 # client enet
 add_executable(client_enet ${CLIENT_SRCS})
 target_link_libraries(client_enet enet ${ADDITIONAL_LINK_LIBRARIES})
@@ -43,13 +52,13 @@ target_include_directories(server_enet PRIVATE ${ENET_INC})
 
 
 # client enet_csharp
-add_executable(client_enet_csharp ${CLIENT_SRCS})
+add_executable(client_enet_csharp ${CLIENT_CSHARP_SRCS})
 target_link_libraries(client_enet_csharp enet_csharp ${ADDITIONAL_LINK_LIBRARIES})
 target_include_directories(client_enet_csharp PRIVATE ${ENET_CSHARP_INC})
 target_compile_definitions(client_enet_csharp PRIVATE -DENET_IMPLEMENTATION)
 
 # server enet_csharp
-add_executable(server_enet_csharp ${SERVER_SRCS})
+add_executable(server_enet_csharp ${SERVER_CSHARP_SRCS})
 target_link_libraries(server_enet_csharp enet_csharp ${ADDITIONAL_LINK_LIBRARIES})
 target_include_directories(server_enet_csharp PRIVATE ${ENET_CSHARP_INC})
 target_compile_definitions(server_enet_csharp PRIVATE -DENET_IMPLEMENTATION)
